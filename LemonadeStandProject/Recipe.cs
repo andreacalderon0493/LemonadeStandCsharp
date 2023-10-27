@@ -29,6 +29,27 @@ namespace LemonadeStand
         {
             Console.WriteLine($"Your recipe currently consists of:\n{numberOfLemons} lemons per pitcher\n{numberOfSugarCubes} sugar cubes per pitcher\n{numberOfIceCubes} ice cubes per pitcher");
         }
+        public void ChangeRecipe()
+        {
+            Console.WriteLine("Would you like to change your recipe?\nYes or No");
+            string userInput = Console.ReadLine();
+
+            if (userInput == "Yes")
+            {
+                Console.WriteLine($"How many lemons?\n" +
+                    $"How many sugarcubes? \n" +
+                    $"How many ice cubes? ");
+                int lemonInput = int.Parse(Console.ReadLine());
+                int sugarCubeInput = int.Parse(Console.ReadLine());
+                int iceCubeInput = int.Parse(Console.ReadLine());
+            }
+            else 
+            {
+                Console.WriteLine("Keeping the same recipe!");
+            }
+            
+            
+        }
 
     }
 }

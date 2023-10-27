@@ -6,12 +6,13 @@
         {
             //Game game = new Game();
             //game.RunGame();
-            Weather weather = new Weather();
-            Day day = new Day();
-            day.CreateCustomers(10);
-            day.SimulatingCustomersWalkingBy(1);
-            day.CalculateNumOfCustomers();
-
+         
+            //Day day = new Day();
+            //day.StartDay();
+            Store store = new Store();
+            Player player = new Player();
+            store.SellCups(player);
+            
         }
     }
 }

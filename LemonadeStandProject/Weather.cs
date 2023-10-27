@@ -20,6 +20,7 @@ namespace LemonadeStand
 			tempature = FindTempature();
 			condition = FindCondition();
 			predictedForecast = $"It is {condition} and {tempature} degrees today.";
+			Console.WriteLine($"{predictedForecast}");
 		}
 
 		public string FindCondition()

@@ -42,6 +42,7 @@ namespace LemonadeStand
 		public int CalculateNumOfCustomers ()
 		{
 			Weather weather = new Weather();
+
 			int numOfCustomers = 35;
 
 			if (weather.FindCondition() == "sunny" || weather.FindCondition() == "cloudy")
@@ -51,8 +52,7 @@ namespace LemonadeStand
 				{
 					numOfCustomers++;
 				}
-				
-				
+	
 			}
 			else if (weather.FindCondition() == "rainy")
 			{
@@ -70,6 +70,10 @@ namespace LemonadeStand
         public void StartDay()
         {
 
+			CreateCustomers(35);
+            CalculateNumOfCustomers();
+			SimulatingCustomersWalkingBy(1);
+  
 
         }
     }
