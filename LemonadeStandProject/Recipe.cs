@@ -36,14 +36,17 @@ namespace LemonadeStand
 
             if (userInput == "Yes")
             {
-                Console.WriteLine($"How many lemons?\n" +
-                    $"How many sugarcubes? \n" +
-                    $"How many ice cubes? ");
+                Console.WriteLine($"How many lemons?");
                 int lemonInput = int.Parse(Console.ReadLine());
+                Console.WriteLine($"\nHow many sugarcubes?");
                 int sugarCubeInput = int.Parse(Console.ReadLine());
+                Console.WriteLine($"\nHow many ice cubes?");
                 int iceCubeInput = int.Parse(Console.ReadLine());
+
+
             }
-            else 
+
+            else
             {
                 Console.WriteLine("Keeping the same recipe!");
             }

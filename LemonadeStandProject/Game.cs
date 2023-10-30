@@ -35,9 +35,32 @@ namespace LemonadeStand
                 Console.WriteLine($"It is {days[i]}");
             }
         }
+        
         public void RunGame()
         {
             DisplayWelcome();
+            Wallet wallet = new Wallet();
+            Inventory inventory = new Inventory();
+            Console.WriteLine($"You have an inventory of \nMoney ${wallet.Money}, \nIce Cubes {inventory.iceCubes.Count}\n" +
+                $"Lemons {inventory.lemons.Count},\nCups {inventory.cups.Count}\nSugar Cubes {inventory.sugarCubes.Count}");
+            
+            
+            Store store = new Store();
+            Player player = new Player();
+            store.SellCups(player);
+            store.SellIceCubes(player);
+            store.SellLemons(player);
+            store.SellSugarCubes(player);
+
+            Recipe recipe = new Recipe();
+            recipe.DisplayRecipe();
+            Console.WriteLine("");
+            recipe.ChangeRecipe();
+            Console.WriteLine("");
+            Day day = new Day();
+
+            day.StartDay();
+
             DisplayDay();
         }
     }
