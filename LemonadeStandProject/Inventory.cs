@@ -26,8 +26,10 @@ namespace LemonadeStand
             AddIceCubesToInventory(100);
             AddCupsToInventory(30);
         }
-
+        
         // member methods (CAN DO)
+        // added a member method here that removes the amount of lemons that can be used throughout the game
+        // SOLID principal (single principal - does one method and one method only)
         public void AddLemonsToInventory(int numberOfLemons)
         {
             for(int i = 0; i < numberOfLemons; i++)

@@ -40,7 +40,7 @@ namespace LemonadeStand
             resultOfWeek += resultOfDay;
             player.totalCostOfDay = 0;
             Console.WriteLine($"Day over! You saw {currentDay.customers.Count} customers today.\n" +
-          $"{customersWhoBought} customers bought lemonade. Today you have made a profit of ${resultOfDay} and you made a total profit for the week of ${resultOfWeek}");
+          $"{customersWhoBought} customers bought lemonade.\nToday you have made a profit of ${resultOfDay} and you made a total profit for the week of ${resultOfWeek}");
         }
 
         public void CreatePitcher(int numberOfPitchers)
@@ -67,7 +67,7 @@ namespace LemonadeStand
            
             for (int i = 0; i < days.Count; i++)
             {
-                Console.WriteLine($"It is {days[i]}");
+                Console.WriteLine($"\nIt is {days[i]}\n");
 
                 Console.WriteLine($"You have an inventory of \nMoney ${player.wallet.Money}, \nIce Cubes {player.inventory.iceCubes.Count}\n" +
                     $"Lemons {player.inventory.lemons.Count},\nCups {player.inventory.cups.Count}\nSugar Cubes {player.inventory.sugarCubes.Count}");
