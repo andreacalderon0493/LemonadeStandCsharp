@@ -8,7 +8,7 @@ namespace LemonadeStand
 		public Customer()
 		{
 			Random rand = new Random();
-			willingnessToPay = rand.Next(50, 200) / 100.0;
+			willingnessToPay = rand.Next(50, 300) / 100.0;
 			
 		}
 		public bool WillBuyLemonade(double price)

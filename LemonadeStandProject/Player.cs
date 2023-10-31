@@ -12,6 +12,7 @@ namespace LemonadeStand
         public Inventory inventory;
         public Wallet wallet;
         public Recipe recipe;
+        public double totalCostOfDay;
 
         // constructor (SPAWNER)
         public Player()
@@ -21,7 +22,8 @@ namespace LemonadeStand
             recipe = new Recipe();
         }
 
+        
         // member methods (CAN DO)
-
+  
     }
 }

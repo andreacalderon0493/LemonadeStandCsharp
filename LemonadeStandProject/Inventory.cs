@@ -36,6 +36,14 @@ namespace LemonadeStand
                 lemons.Add(lemon);
             }
         }
+        public void RemoveLemonsFromInventory(int numberOfLemons)
+        {
+            for (int i = 0; i < numberOfLemons; i++)
+                
+            {
+                lemons.RemoveAt(0);
+            }
+        }
 
         public void AddSugarCubesToInventory(int numberOfSugarCubes)
         {
@@ -43,6 +51,14 @@ namespace LemonadeStand
             {
                 SugarCube sugarCube = new SugarCube();
                 sugarCubes.Add(sugarCube);
+            }
+        }
+        public void RemoveSugarCubesToInventory(int numberOfSugarCubes)
+        {
+            for (int i = 0; i < numberOfSugarCubes; i++)
+            {
+                sugarCubes.RemoveAt(0);
+
             }
         }
 
@@ -54,6 +70,14 @@ namespace LemonadeStand
                 iceCubes.Add(iceCube);
             }
         }
+        public void RemoveIceCubesToInventory(int numberOfIceCubes)
+        {
+            for (int i = 0; i < numberOfIceCubes; i++)
+            {
+               
+                iceCubes.RemoveAt(0);
+            }
+        }
 
         public void AddCupsToInventory(int numberOfCups)
         {
@@ -63,7 +87,14 @@ namespace LemonadeStand
                 cups.Add(cup);
             }
         }
-
+        public void RemoveCupsToInventory(int numberOfCups)
+        {
+            for (int i = 0; i < numberOfCups; i++)
+            {
+                
+                cups.RemoveAt(0);
+            }
+        }
 
     }
 }

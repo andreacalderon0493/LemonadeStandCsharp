@@ -25,7 +25,7 @@ namespace LemonadeStand
 
 			foreach (Customer customer in customers)
 			{
-				if(customer.WillBuyLemonade(lemonadePrice))
+				if (customer.WillBuyLemonade(lemonadePrice))
 				{
 					Console.WriteLine("A customer walked by.. $cha ching");
 					customersWhoBought++;
@@ -34,47 +34,47 @@ namespace LemonadeStand
 				{
 					Console.WriteLine("A customer walked by...");
 				}
-				
-			}  return customersWhoBought;
 
-		}
+				
+            } return customersWhoBought;
+
+           
+
+        }
 
 		public int CalculateNumOfCustomers ()
 		{
 			Weather weather = new Weather();
 
-			int numOfCustomers = 35;
+			int numberOfCustomers = 35;
 
-			if (weather.FindCondition() == "sunny" || weather.FindCondition() == "cloudy")
+
+			if (weather.condition == "sunny" || weather.condition == "cloudy")
 			{
-				numOfCustomers++;
-				if (weather.FindTempature() >= 78)
+				numberOfCustomers++;
+				if (weather.tempature >= 78)
 				{
-					numOfCustomers++;
+					numberOfCustomers++;
 				}
 	
 			}
-			else if (weather.FindCondition() == "rainy")
+			else if (weather.condition == "rainy")
 			{
-				numOfCustomers--;
+				numberOfCustomers--;
 
-				if (weather.FindTempature() < 78)
+				if (weather.tempature < 78)
 
 				{
-					numOfCustomers--;
+					numberOfCustomers--;
 				}
 			}
-                return numOfCustomers;
+                return numberOfCustomers;
 
         }
         public void StartDay()
         {
-
-			CreateCustomers(35);
-            CalculateNumOfCustomers();
-			SimulatingCustomersWalkingBy(1);
-  
-
+			CreateCustomers(CalculateNumOfCustomers());
+            
         }
     }
 

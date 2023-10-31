@@ -29,12 +29,16 @@ namespace LemonadeStand
         {
             Console.WriteLine($"Your recipe currently consists of:\n{numberOfLemons} lemons per pitcher\n{numberOfSugarCubes} sugar cubes per pitcher\n{numberOfIceCubes} ice cubes per pitcher");
         }
+        // Added a user validation to make sure if putting Uppercase code still works.
+        // Added SOLID implemination Single Responsibility Principle - used here to change recipe
+        
         public void ChangeRecipe()
         {
             Console.WriteLine("Would you like to change your recipe?\nYes or No");
             string userInput = Console.ReadLine();
+            userInput = userInput.ToLower();
 
-            if (userInput == "Yes")
+            if (userInput == "yes")
             {
                 Console.WriteLine($"How many lemons?");
                 int lemonInput = int.Parse(Console.ReadLine());
@@ -43,14 +47,13 @@ namespace LemonadeStand
                 Console.WriteLine($"\nHow many ice cubes?");
                 int iceCubeInput = int.Parse(Console.ReadLine());
 
-
             }
 
             else
             {
                 Console.WriteLine("Keeping the same recipe!");
             }
-            
+
             
         }
 

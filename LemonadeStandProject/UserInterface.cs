@@ -22,6 +22,7 @@ namespace LemonadeStand
             }
 
             return quantityOfItem;
+            
         }
 
         public static int GetNumberOfPitchers()
@@ -33,7 +34,6 @@ namespace LemonadeStand
             {
                 Console.WriteLine("Each pitcher pours 8 cups. How many pitchers would you like to make?");
                 Console.WriteLine("Please enter a positive integer (or 0 to cancel):");
-
                 userInputIsAnInteger = Int32.TryParse(Console.ReadLine(), out quantityOfItem);
             }
 

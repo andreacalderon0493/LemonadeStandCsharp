@@ -3,9 +3,9 @@ namespace LemonadeStand
 {
 	public class Weather
 	{
-		string condition;
+		public string condition;
 		string predictedForecast;
-		int tempature;
+		public int tempature;
 		List<string> weatherConditions;
 
 		public Weather()

@@ -32,6 +32,7 @@ namespace LemonadeStand
             {
                 player.wallet.PayMoneyForItems(transactionAmount);
                 player.inventory.AddLemonsToInventory(lemonsToPurchase);
+                player.totalCostOfDay += transactionAmount;
             }
         }
 
@@ -43,6 +44,7 @@ namespace LemonadeStand
             {
                 PerformTransaction(player.wallet, transactionAmount);
                 player.inventory.AddSugarCubesToInventory(sugarToPurchase);
+                player.totalCostOfDay += transactionAmount;
             }
         }
 
@@ -54,6 +56,7 @@ namespace LemonadeStand
             {
                 PerformTransaction(player.wallet, transactionAmount);
                 player.inventory.AddIceCubesToInventory(iceCubesToPurchase);
+                player.totalCostOfDay += transactionAmount;
             }
         }
 
@@ -65,6 +68,7 @@ namespace LemonadeStand
             {
                 PerformTransaction(player.wallet, transactionAmount);
                 player.inventory.AddCupsToInventory(cupsToPurchase);
+                player.totalCostOfDay += transactionAmount;
             }
         }
 

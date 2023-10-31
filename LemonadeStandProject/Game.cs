@@ -1,10 +1,17 @@
 ﻿using System;
 namespace LemonadeStand
 {
-	public class Game
-	{    public Game()
-		{
+	internal class Game
+ 
+	{
+        public double resultOfDay;
+        public Player player = new Player();
+        public Store store = new Store();
+        public double resultOfWeek;
 
+        public Game()
+		{
+            
 		}
 
         public void DisplayWelcome()
@@ -15,9 +22,38 @@ namespace LemonadeStand
                 "\nLet's hustle and see if you can make the big bucks!");
 
         }
-        public void DisplayDay()
+      
+        //SOLID design principle
+        //Open-Close principle open for extension but closed for modification 
+        internal void ProfitAndLoss(Day currentDay)
         {
-            Player player;
+            resultOfDay = 0;
+            
+            int numberOfPitchers = UserInterface.GetNumberOfPitchers();
+            CreatePitcher(numberOfPitchers);
+            Console.WriteLine("How much would you like to charge per cup?");
+            double inputPricePerCup = double.Parse(Console.ReadLine());
+            int customersWhoBought = currentDay.SimulatingCustomersWalkingBy(inputPricePerCup);
+            resultOfDay = inputPricePerCup * customersWhoBought;
+            player.wallet.AcceptMoney(resultOfDay);
+            resultOfDay -= player.totalCostOfDay;
+            resultOfWeek += resultOfDay;
+            player.totalCostOfDay = 0;
+            Console.WriteLine($"Day over! You saw {currentDay.customers.Count} customers today.\n" +
+          $"{customersWhoBought} customers bought lemonade. Today you have made a profit of ${resultOfDay} and you made a total profit for the week of ${resultOfWeek}");
+        }
+
+        public void CreatePitcher(int numberOfPitchers)
+        {
+            player.inventory.RemoveLemonsFromInventory(player.recipe.numberOfLemons * numberOfPitchers);
+            player.inventory.RemoveSugarCubesToInventory(player.recipe.numberOfSugarCubes * numberOfPitchers);
+            player.inventory.RemoveCupsToInventory(8 * numberOfPitchers);
+            player.inventory.RemoveIceCubesToInventory(player.recipe.numberOfIceCubes * numberOfPitchers);
+
+        }
+        public void RunGame()
+        {
+            DisplayWelcome();
             List<string> days = new List<string>
             {
                 "Day 1 Monday",
@@ -28,40 +64,31 @@ namespace LemonadeStand
                 "Day 6 Saturday",
                 "Day 7 Sunday"
             };
-            int currentDay = 0;
-            
+           
             for (int i = 0; i < days.Count; i++)
             {
                 Console.WriteLine($"It is {days[i]}");
+
+                Console.WriteLine($"You have an inventory of \nMoney ${player.wallet.Money}, \nIce Cubes {player.inventory.iceCubes.Count}\n" +
+                    $"Lemons {player.inventory.lemons.Count},\nCups {player.inventory.cups.Count}\nSugar Cubes {player.inventory.sugarCubes.Count}");
+
+                store.SellCups(player);
+                store.SellIceCubes(player);
+                store.SellLemons(player);
+                store.SellSugarCubes(player);
+
+                player.recipe.DisplayRecipe();
+                Console.WriteLine("");
+                player.recipe.ChangeRecipe();
+                Console.WriteLine("");
+                Day day = new Day(); //this is a unique Day object
+                day.StartDay();
+                ProfitAndLoss(day);
+
             }
-        }
-        
-        public void RunGame()
-        {
-            DisplayWelcome();
-            Wallet wallet = new Wallet();
-            Inventory inventory = new Inventory();
-            Console.WriteLine($"You have an inventory of \nMoney ${wallet.Money}, \nIce Cubes {inventory.iceCubes.Count}\n" +
-                $"Lemons {inventory.lemons.Count},\nCups {inventory.cups.Count}\nSugar Cubes {inventory.sugarCubes.Count}");
+
+
             
-            
-            Store store = new Store();
-            Player player = new Player();
-            store.SellCups(player);
-            store.SellIceCubes(player);
-            store.SellLemons(player);
-            store.SellSugarCubes(player);
-
-            Recipe recipe = new Recipe();
-            recipe.DisplayRecipe();
-            Console.WriteLine("");
-            recipe.ChangeRecipe();
-            Console.WriteLine("");
-            Day day = new Day();
-
-            day.StartDay();
-
-            DisplayDay();
         }
     }
 
